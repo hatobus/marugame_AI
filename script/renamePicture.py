@@ -5,7 +5,7 @@ import uuid
 
 
 class rename4UUID:
-    def __init__(self, path<`3`>):
+    def __init__(self, path):
         self.dirPath = path
 
     def grepPicture(self):
@@ -19,11 +19,13 @@ class rename4UUID:
             _path, _fname = os.path.split(fname)
             root, ext = os.path.splitext(_fname)
             renameFname = str(uuid.uuid4()).split("-")[-1] + ext
-            os.rename(fname, _path+renameFname)
+            os.rename(fname, self.absPath+"/"+renameFname)
 
 
 if __name__=='__main__':
-    Rename = rename4UUID("path/to/rename")
-    imgList = Rename.grepPicture()
-    Rename.renameUUID(imgList)
+    dirList = ["bukkake", "ikaten", "kake", "kakiage", "kamaage", "kashiwa"]
+    for d in dirList:
+        Rename = rename4UUID("../marugame1000/"+d+"/")
+        imgList = Rename.grepPicture()
+        Rename.renameUUID(imgList)
 
